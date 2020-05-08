@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{b6610506-2784-4630-b9bf-4e531f398a56}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <StartupFile />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -20,6 +20,15 @@
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <None Include="tsconfig.json" />
+    <Content Include="public\assets\categoryImages\culture.jpg" />
+    <Content Include="public\assets\categoryImages\drinks.jpg" />
+    <Content Include="public\assets\categoryImages\film.jpg" />
+    <Content Include="public\assets\categoryImages\food.jpg" />
+    <Content Include="public\assets\categoryImages\music.jpg" />
+    <Content Include="public\assets\categoryImages\travel.jpg" />
+    <Content Include="public\assets\logo.png" />
+    <Content Include="public\assets\placeholder.png" />
+    <Content Include="public\assets\user.png" />
     <Content Include="README.md" />
     <Content Include="public\robots.txt" />
     <Content Include="public\index.html" />
@@ -27,19 +36,47 @@
     <Content Include="public\logo512.png" />
     <Content Include="public\favicon.ico" />
     <Content Include="public\manifest.json" />
-    <Content Include="src\App.css" />
-    <Content Include="src\index.css" />
-    <Content Include="src\logo.svg" />
+    <Content Include="src\app\layout\styles.css" />
     <None Include="src\react-app-env.d.ts" />
     <None Include="src\serviceWorker.ts" />
     <None Include="src\setupTests.ts" />
-    <None Include="src\App.test.tsx" />
-    <None Include="src\App.tsx" />
+    <None Include="src\app\layout\App.tsx" />
     <None Include="src\index.tsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="public" />
+    <Folder Include="public\assets\" />
+    <Folder Include="public\assets\categoryImages\" />
     <Folder Include="src" />
+    <Folder Include="src\app\" />
+    <Folder Include="src\app\layout\" />
+    <Folder Include="src\app\models\" />
+    <Folder Include="src\features\" />
+    <Folder Include="src\features\activities\dashboard\" />
+    <Folder Include="src\features\activities\details\" />
+    <Folder Include="src\features\activities\form\" />
+    <Folder Include="src\features\nav\" />
+    <Folder Include="src\features\activities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app\models\activity.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\activities\dashboard\ActivityDashboard.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\activities\dashboard\ActivityList.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\activities\details\ActivityDetails.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\activities\form\ActivityForm.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\nav\NavBar.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
