@@ -51,6 +51,7 @@
     <Folder Include="src\app\" />
     <Folder Include="src\app\layout\" />
     <Folder Include="src\app\models\" />
+    <Folder Include="src\app\api\" />
     <Folder Include="src\features\" />
     <Folder Include="src\features\activities\dashboard\" />
     <Folder Include="src\features\activities\details\" />
@@ -59,6 +60,12 @@
     <Folder Include="src\features\activities\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\api\agent.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\layout\LoadingComponent.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\models\activity.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

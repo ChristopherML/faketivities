@@ -16,7 +16,7 @@ var semantic_ui_react_1 = require("semantic-ui-react");
 var react_1 = require("react");
 var uuid_1 = require("uuid");
 var ActivityForm = function (_a) {
-    var setEditMode = _a.setEditMode, intialFormState = _a.activity, createActivity = _a.createActivity, editActivity = _a.editActivity;
+    var setEditMode = _a.setEditMode, intialFormState = _a.activity, createActivity = _a.createActivity, editActivity = _a.editActivity, submitting = _a.submitting;
     var initializeForm = function () {
         if (intialFormState) {
             return intialFormState;
@@ -35,7 +35,7 @@ var ActivityForm = function (_a) {
     };
     var _b = react_1.useState(initializeForm), activity = _b[0], setActivity = _b[1];
     var handleSubmit = function () {
-        if (activity.id.length == 0) {
+        if (activity.id.length === 0) {
             var newActivity = __assign(__assign({}, activity), { id: uuid_1.v4() });
             createActivity(newActivity);
         }
@@ -57,7 +57,7 @@ var ActivityForm = function (_a) {
             React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'city', placeholder: 'City', value: activity.city }),
             React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'venue', placeholder: 'Veneu', value: activity.venue }),
             React.createElement(semantic_ui_react_1.Button, { floated: 'right', positive: true, type: 'submit', content: 'Submit' }),
-            React.createElement(semantic_ui_react_1.Button, { onClick: function () { return setEditMode(false); }, floated: 'right', content: 'Cancel' }))));
+            React.createElement(semantic_ui_react_1.Button, { onClick: function () { return setEditMode(false); }, loading: submitting, floated: 'right', content: 'Cancel' }))));
 };
 exports.default = ActivityForm;
 //# sourceMappingURL=ActivityForm.js.map

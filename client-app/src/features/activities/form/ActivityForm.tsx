@@ -9,13 +9,15 @@ interface IProps {
   activity: IActivity;
   createActivity: ( activity: IActivity ) => void;
   editActivity: ( activity: IActivity ) => void;
+  submitting: boolean;
 }
 
 const ActivityForm: React.FC<IProps> = ( {
   setEditMode,
   activity: intialFormState,
   createActivity,
-  editActivity
+  editActivity,
+  submitting
 } ) => {
 
   const initializeForm = () => {
@@ -37,7 +39,7 @@ const ActivityForm: React.FC<IProps> = ( {
   const [activity, setActivity] = useState<IActivity>( initializeForm );
 
   const handleSubmit = () => {
-    if ( activity.id.length == 0 ) {
+    if ( activity.id.length === 0 ) {
       let newActivity = {
         ...activity,
         id: uuid()
@@ -101,6 +103,7 @@ const ActivityForm: React.FC<IProps> = ( {
         />
         <Button
           onClick={() => setEditMode( false )}
+          loading={submitting}
           floated='right'
           content='Cancel'
         />
