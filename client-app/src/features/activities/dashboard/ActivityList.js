@@ -2,10 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var semantic_ui_react_1 = require("semantic-ui-react");
-var ActivityList = function (_a) {
-    var activities = _a.activities, selectActivity = _a.selectActivity, deleteActivity = _a.deleteActivity, submitting = _a.submitting, target = _a.target;
+var mobx_react_lite_1 = require("mobx-react-lite");
+var activityStore_1 = require("../../../app/stores/activityStore");
+var react_1 = require("react");
+var ActivityList = function () {
+    var activityStore = react_1.useContext(activityStore_1.default);
+    var activitiesByDate = activityStore.activitiesByDate, selectActivity = activityStore.selectActivity, deleteActivity = activityStore.deleteActivity, submitting = activityStore.submitting, target = activityStore.target;
     return (React.createElement(semantic_ui_react_1.Segment, { clearing: true },
-        React.createElement(semantic_ui_react_1.Item.Group, { divided: true }, activities.map(function (activity) { return (React.createElement(semantic_ui_react_1.Item, { key: activity.id },
+        React.createElement(semantic_ui_react_1.Item.Group, { divided: true }, activitiesByDate.map(function (activity) { return (React.createElement(semantic_ui_react_1.Item, { key: activity.id },
             React.createElement(semantic_ui_react_1.Item.Content, null,
                 React.createElement(semantic_ui_react_1.Item.Header, { as: 'a' }, activity.title),
                 React.createElement(semantic_ui_react_1.Item.Meta, null, activity.date),
@@ -20,5 +24,5 @@ var ActivityList = function (_a) {
                     React.createElement(semantic_ui_react_1.Button, { name: activity.id, onClick: function (e) { return deleteActivity(e, activity.id); }, floated: 'right', loading: target === activity.id && submitting, content: 'Delete', color: 'red' }),
                     React.createElement(semantic_ui_react_1.Label, { basic: true, content: activity.category }))))); }))));
 };
-exports.default = ActivityList;
+exports.default = mobx_react_lite_1.observer(ActivityList);
 //# sourceMappingURL=ActivityList.js.map

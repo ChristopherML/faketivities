@@ -5,15 +5,19 @@ var semantic_ui_react_1 = require("semantic-ui-react");
 var ActivityList_1 = require("./ActivityList");
 var ActivityDetails_1 = require("../details/ActivityDetails");
 var ActivityForm_1 = require("../form/ActivityForm");
-var ActivityDashboard = function (_a) {
-    var activities = _a.activities, selectActivity = _a.selectActivity, selectedActivity = _a.selectedActivity, editMode = _a.editMode, setEditMode = _a.setEditMode, setSelectedActivity = _a.setSelectedActivity, createActivity = _a.createActivity, editActivity = _a.editActivity, deleteActivity = _a.deleteActivity, submitting = _a.submitting, target = _a.target;
-    var _b;
+var mobx_react_lite_1 = require("mobx-react-lite");
+var activityStore_1 = require("../../../app/stores/activityStore");
+var react_1 = require("react");
+var ActivityDashboard = function () {
+    var _a;
+    var activityStore = react_1.useContext(activityStore_1.default);
+    var editMode = activityStore.editMode, selectedActivity = activityStore.selectedActivity;
     return (React.createElement(semantic_ui_react_1.Grid, null,
         React.createElement(semantic_ui_react_1.Grid.Column, { width: 10 },
-            React.createElement(ActivityList_1.default, { activities: activities, selectActivity: selectActivity, deleteActivity: deleteActivity, submitting: submitting, target: target })),
+            React.createElement(ActivityList_1.default, null)),
         React.createElement(semantic_ui_react_1.Grid.Column, { width: 6 },
-            selectedActivity && !editMode && (React.createElement(ActivityDetails_1.default, { activity: selectedActivity, setEditMode: setEditMode, setSelectedActivity: setSelectedActivity })),
-            editMode && React.createElement(ActivityForm_1.default, { key: ((_b = selectedActivity) === null || _b === void 0 ? void 0 : _b.id) || 0, setEditMode: setEditMode, activity: selectedActivity, createActivity: createActivity, editActivity: editActivity, submitting: submitting }))));
+            selectedActivity && !editMode && (React.createElement(ActivityDetails_1.default, null)),
+            editMode && React.createElement(ActivityForm_1.default, { key: ((_a = selectedActivity) === null || _a === void 0 ? void 0 : _a.id) || 0, activity: selectedActivity }))));
 };
-exports.default = ActivityDashboard;
+exports.default = mobx_react_lite_1.observer(ActivityDashboard);
 //# sourceMappingURL=ActivityDashboard.js.map

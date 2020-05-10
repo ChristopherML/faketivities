@@ -15,8 +15,12 @@ var React = require("react");
 var semantic_ui_react_1 = require("semantic-ui-react");
 var react_1 = require("react");
 var uuid_1 = require("uuid");
+var activityStore_1 = require("../../../app/stores/activityStore");
+var mobx_react_lite_1 = require("mobx-react-lite");
 var ActivityForm = function (_a) {
-    var setEditMode = _a.setEditMode, intialFormState = _a.activity, createActivity = _a.createActivity, editActivity = _a.editActivity, submitting = _a.submitting;
+    var intialFormState = _a.activity;
+    var activityStore = react_1.useContext(activityStore_1.default);
+    var createActivity = activityStore.createActivity, editActivity = activityStore.editActivity, submitting = activityStore.submitting, cancelFormOpen = activityStore.cancelFormOpen;
     var initializeForm = function () {
         if (intialFormState) {
             return intialFormState;
@@ -56,8 +60,8 @@ var ActivityForm = function (_a) {
             React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'date', type: 'datetime-local', placeholder: 'Date', value: activity.date }),
             React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'city', placeholder: 'City', value: activity.city }),
             React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'venue', placeholder: 'Veneu', value: activity.venue }),
-            React.createElement(semantic_ui_react_1.Button, { floated: 'right', positive: true, type: 'submit', content: 'Submit' }),
-            React.createElement(semantic_ui_react_1.Button, { onClick: function () { return setEditMode(false); }, loading: submitting, floated: 'right', content: 'Cancel' }))));
+            React.createElement(semantic_ui_react_1.Button, { loading: submitting, floated: 'right', positive: true, type: 'submit', content: 'Submit' }),
+            React.createElement(semantic_ui_react_1.Button, { onClick: cancelFormOpen, type: 'button', floated: 'right', content: 'Cancel' }))));
 };
-exports.default = ActivityForm;
+exports.default = mobx_react_lite_1.observer(ActivityForm);
 //# sourceMappingURL=ActivityForm.js.map
