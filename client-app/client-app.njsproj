@@ -59,12 +59,16 @@
     <Folder Include="src\features\activities\form\" />
     <Folder Include="src\features\nav\" />
     <Folder Include="src\features\activities\" />
+    <Folder Include="src\features\home\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\app\api\agent.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\layout\LoadingComponent.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\layout\ScrollToTop.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\models\activity.ts">
@@ -83,6 +87,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\activities\form\ActivityForm.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\home\HomePage.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\nav\NavBar.tsx">
