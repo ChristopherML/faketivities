@@ -52,16 +52,18 @@ var ActivityForm = function (_a) {
         var _b = event.currentTarget, name = _b.name, value = _b.value;
         setActivity(__assign(__assign({}, activity), (_a = {}, _a[name] = value, _a)));
     };
-    return (React.createElement(semantic_ui_react_1.Segment, { clearing: true },
-        React.createElement(semantic_ui_react_1.Form, { onSubmit: handleSubmit },
-            React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'title', placeholder: 'Title', value: activity.title }),
-            React.createElement(semantic_ui_react_1.Form.TextArea, { onChange: handleInputChange, name: 'description', rows: 2, placeholder: 'Description', value: activity.description }),
-            React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'category', placeholder: 'Category', value: activity.category }),
-            React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'date', type: 'datetime-local', placeholder: 'Date', value: activity.date }),
-            React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'city', placeholder: 'City', value: activity.city }),
-            React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'venue', placeholder: 'Veneu', value: activity.venue }),
-            React.createElement(semantic_ui_react_1.Button, { loading: submitting, floated: 'right', positive: true, type: 'submit', content: 'Submit' }),
-            React.createElement(semantic_ui_react_1.Button, { onClick: function () { return history.push('/activities'); }, type: 'button', floated: 'right', content: 'Cancel' }))));
+    return (React.createElement(semantic_ui_react_1.Grid, null,
+        React.createElement(semantic_ui_react_1.Grid.Column, { width: 10 },
+            React.createElement(semantic_ui_react_1.Segment, { clearing: true },
+                React.createElement(semantic_ui_react_1.Form, { onSubmit: handleSubmit },
+                    React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'title', placeholder: 'Title', value: activity.title }),
+                    React.createElement(semantic_ui_react_1.Form.TextArea, { onChange: handleInputChange, name: 'description', rows: 2, placeholder: 'Description', value: activity.description }),
+                    React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'category', placeholder: 'Category', value: activity.category }),
+                    React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'date', type: 'datetime-local', placeholder: 'Date', value: activity.date }),
+                    React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'city', placeholder: 'City', value: activity.city }),
+                    React.createElement(semantic_ui_react_1.Form.Input, { onChange: handleInputChange, name: 'venue', placeholder: 'Veneu', value: activity.venue }),
+                    React.createElement(semantic_ui_react_1.Button, { loading: submitting, floated: 'right', positive: true, type: 'submit', content: 'Submit' }),
+                    React.createElement(semantic_ui_react_1.Button, { onClick: function () { return history.push('/activities'); }, type: 'button', floated: 'right', content: 'Cancel' }))))));
 };
 exports.default = mobx_react_lite_1.observer(ActivityForm);
 //# sourceMappingURL=ActivityForm.js.map
