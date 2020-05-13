@@ -68,6 +68,9 @@
     <TypeScriptCompile Include="src\app\layout\LoadingComponent.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\layout\NotFound.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\layout\ScrollToTop.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>

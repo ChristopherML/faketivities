@@ -1,8 +1,10 @@
 ﻿using MediatR;
 using Persistence;
 using System;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Application.Errors;
 
 namespace Application.Activities
 {
@@ -26,7 +28,9 @@ namespace Application.Activities
                 var activity = await _context.Activities.FindAsync(request.Id);
 
                 if (activity == null)
-                    throw new Exception("Could not find activity");
+                {
+                    throw new RestExceptions(HttpStatusCode.NotFound, new { activity = "Not found" });
+                }
 
                 _context.Remove(activity);
 

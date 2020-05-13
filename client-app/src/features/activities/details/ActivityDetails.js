@@ -11,14 +11,17 @@ var ActivityDetailedInfo_1 = require("./ActivityDetailedInfo");
 var ActivityDetailedChat_1 = require("./ActivityDetailedChat");
 var ActivityDetailedSidebar_1 = require("./ActivityDetailedSidebar");
 var ActivityDetails = function (_a) {
-    var match = _a.match;
+    var match = _a.match, history = _a.history;
     var activityStore = react_1.useContext(activityStore_1.default);
     var activity = activityStore.activity, loadActivity = activityStore.loadActivity, loadingInitial = activityStore.loadingInitial;
     react_1.useEffect(function () {
         loadActivity(match.params.id);
-    }, [loadActivity, match.params.id]);
-    if (loadingInitial || !activity)
+    }, [loadActivity, match.params.id, history]);
+    if (loadingInitial)
         return React.createElement(LoadingComponent_1.default, { content: 'Loading activity...' });
+    if (!activity) {
+        return React.createElement("h2", null, "Activity not found");
+    }
     return (React.createElement(semantic_ui_react_1.Grid, null,
         React.createElement(semantic_ui_react_1.Grid.Column, { width: 10 },
             React.createElement(ActivityDetailedHeader_1.default, { activity: activity }),
