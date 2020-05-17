@@ -5,8 +5,8 @@ var __1 = require("../..");
 var react_toastify_1 = require("react-toastify");
 axios_1.default.defaults.baseURL = 'http://localhost:5000/api';
 axios_1.default.interceptors.response.use(undefined, function (error) {
-    if (error.message == "Network Error" && !error.response) {
-        react_toastify_1.toast.error('Network error - make sure API is running!');
+    if (error.message == 'Network Error' && !error.response) {
+        react_toastify_1.toast.error('Network error - make sure the API is running!');
     }
     var _a = error.response, status = _a.status, data = _a.data, config = _a.config;
     if (status === 404) {
@@ -18,7 +18,6 @@ axios_1.default.interceptors.response.use(undefined, function (error) {
     if (status === 500) {
         react_toastify_1.toast.error('Server error - check the terminal for more info!');
     }
-    throw error;
 });
 var responseBody = function (response) { return response.data; };
 var sleep = function (ms) { return function (response) {
@@ -37,5 +36,7 @@ var Activities = {
     update: function (activity) { return requests.put("/activities/" + activity.id, activity); },
     delete: function (id) { return requests.del("/activities/" + id); }
 };
-exports.default = { Activities: Activities };
+exports.default = {
+    Activities: Activities
+};
 //# sourceMappingURL=agent.js.map
