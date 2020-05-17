@@ -4,6 +4,7 @@ var React = require("react");
 var semantic_ui_react_1 = require("semantic-ui-react");
 var react_router_dom_1 = require("react-router-dom");
 var mobx_react_lite_1 = require("mobx-react-lite");
+var date_fns_1 = require("date-fns");
 var ActivityListItem = function (_a) {
     var activity = _a.activity;
     return (React.createElement(semantic_ui_react_1.Segment.Group, null,
@@ -17,7 +18,7 @@ var ActivityListItem = function (_a) {
         React.createElement(semantic_ui_react_1.Segment, null,
             React.createElement(semantic_ui_react_1.Icon, { name: 'clock' }),
             " ",
-            activity.date,
+            date_fns_1.format(activity.date, 'h:mm a'),
             React.createElement(semantic_ui_react_1.Icon, { name: 'marker' }),
             " ",
             activity.venue,

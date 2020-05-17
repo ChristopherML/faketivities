@@ -44,14 +44,19 @@
     <None Include="src\index.tsx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="src\app\common\util\" />
+    <Folder Include="typings-customs\" />
     <Folder Include="public" />
     <Folder Include="public\assets\" />
     <Folder Include="public\assets\categoryImages\" />
     <Folder Include="src" />
     <Folder Include="src\app\" />
+    <Folder Include="src\app\common\form\" />
+    <Folder Include="src\app\common\options\" />
     <Folder Include="src\app\layout\" />
     <Folder Include="src\app\models\" />
     <Folder Include="src\app\api\" />
+    <Folder Include="src\app\common\" />
     <Folder Include="src\app\stores\" />
     <Folder Include="src\features\" />
     <Folder Include="src\features\activities\dashboard\" />
@@ -63,6 +68,27 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\app\api\agent.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\common\form\DateInput.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\common\form\SelectInput.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\common\form\TextAreaInput.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\common\form\TextInput.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\common\options\categoryOptions.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\common\util\util.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\layout\NotFound.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\layout\LoadingComponent.tsx">
@@ -102,6 +128,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\nav\NavBar.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings-customs\react-widgets-date-fns.d.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
   </ItemGroup>
