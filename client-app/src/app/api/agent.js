@@ -6,7 +6,7 @@ var react_toastify_1 = require("react-toastify");
 axios_1.default.defaults.baseURL = 'http://localhost:5000/api';
 axios_1.default.interceptors.response.use(undefined, function (error) {
     if (error.message == 'Network Error' && !error.response) {
-        react_toastify_1.toast.error('Network error - make sure the API is running!');
+        react_toastify_1.toast.error('Network error - make sure API is running!');
     }
     var _a = error.response, status = _a.status, data = _a.data, config = _a.config;
     if (status === 404) {
