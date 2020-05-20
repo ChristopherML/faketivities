@@ -36,7 +36,13 @@ var Activities = {
     update: function (activity) { return requests.put("/activities/" + activity.id, activity); },
     delete: function (id) { return requests.del("/activities/" + id); }
 };
+var User = {
+    current: function () { return requests.get('/user'); },
+    login: function (user) { return requests.post("/user/login", user); },
+    register: function (user) { return requests.post("/user/register", user); },
+};
 exports.default = {
-    Activities: Activities
+    Activities: Activities,
+    User: User
 };
 //# sourceMappingURL=agent.js.map

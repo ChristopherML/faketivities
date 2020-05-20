@@ -27,7 +27,6 @@ var semantic_ui_react_1 = require("semantic-ui-react");
 var activity_1 = require("../../../app/models/activity");
 var react_1 = require("react");
 var uuid_1 = require("uuid");
-var activityStore_1 = require("../../../app/stores/activityStore");
 var mobx_react_lite_1 = require("mobx-react-lite");
 var react_final_form_1 = require("react-final-form");
 var TextInput_1 = require("../../../app/common/form/TextInput");
@@ -37,6 +36,7 @@ var SelectInput_1 = require("../../../app/common/form/SelectInput");
 var DateInput_1 = require("../../../app/common/form/DateInput");
 var util_1 = require("../../../app/common/util/util");
 var revalidate_1 = require("revalidate");
+var rootStore_1 = require("../../../app/stores/rootStore");
 var validate = revalidate_1.combineValidators({
     title: revalidate_1.isRequired({ message: 'The event title is required' }),
     category: revalidate_1.isRequired('Category'),
@@ -48,10 +48,10 @@ var validate = revalidate_1.combineValidators({
 });
 var ActivityForm = function (_a) {
     var match = _a.match, history = _a.history;
-    var activityStore = react_1.useContext(activityStore_1.default);
-    var createActivity = activityStore.createActivity, editActivity = activityStore.editActivity, submitting = activityStore.submitting, loadActivity = activityStore.loadActivity;
-    var _b = react_1.useState(new activity_1.ActivityFormValues()), activity = _b[0], setActivity = _b[1];
-    var _c = react_1.useState(false), loading = _c[0], setLoading = _c[1];
+    var rootStore = react_1.useContext(rootStore_1.RootStoreContext);
+    var _b = rootStore.activityStore, createActivity = _b.createActivity, editActivity = _b.editActivity, submitting = _b.submitting, loadActivity = _b.loadActivity;
+    var _c = react_1.useState(new activity_1.ActivityFormValues()), activity = _c[0], setActivity = _c[1];
+    var _d = react_1.useState(false), loading = _d[0], setLoading = _d[1];
     react_1.useEffect(function () {
         if (match.params.id) {
             setLoading(true);

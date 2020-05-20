@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { Item, Segment, Label } from 'semantic-ui-react';
 import { observer } from 'mobx-react-lite';
-import ActivityStore from '../../../app/stores/activityStore';
 import { useContext, Fragment } from 'react';
 import ActivityListItem from './ActivityLIstItem';
+import { RootStoreContext } from '../../../app/stores/rootStore';
 
 const ActivityList: React.FC = () => {
 
-  const activityStore = useContext( ActivityStore );
-  const { activitiesByDate } = activityStore;
+  const rootStore = useContext( RootStoreContext );
+  const { activitiesByDate } = rootStore.activityStore;
 
   return (
     <Fragment>

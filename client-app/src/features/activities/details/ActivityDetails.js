@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var semantic_ui_react_1 = require("semantic-ui-react");
-var activityStore_1 = require("../../../app/stores/activityStore");
 var react_1 = require("react");
 var mobx_react_lite_1 = require("mobx-react-lite");
 var LoadingComponent_1 = require("../../../app/layout/LoadingComponent");
@@ -10,10 +9,11 @@ var ActivityDetailedHeader_1 = require("./ActivityDetailedHeader");
 var ActivityDetailedInfo_1 = require("./ActivityDetailedInfo");
 var ActivityDetailedChat_1 = require("./ActivityDetailedChat");
 var ActivityDetailedSidebar_1 = require("./ActivityDetailedSidebar");
+var rootStore_1 = require("../../../app/stores/rootStore");
 var ActivityDetails = function (_a) {
     var match = _a.match, history = _a.history;
-    var activityStore = react_1.useContext(activityStore_1.default);
-    var activity = activityStore.activity, loadActivity = activityStore.loadActivity, loadingInitial = activityStore.loadingInitial;
+    var rootStore = react_1.useContext(rootStore_1.RootStoreContext);
+    var _b = rootStore.activityStore, activity = _b.activity, loadActivity = _b.loadActivity, loadingInitial = _b.loadingInitial;
     react_1.useEffect(function () {
         loadActivity(match.params.id);
     }, [loadActivity, match.params.id, history]);

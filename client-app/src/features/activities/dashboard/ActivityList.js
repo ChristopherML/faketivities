@@ -3,12 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var semantic_ui_react_1 = require("semantic-ui-react");
 var mobx_react_lite_1 = require("mobx-react-lite");
-var activityStore_1 = require("../../../app/stores/activityStore");
 var react_1 = require("react");
 var ActivityLIstItem_1 = require("./ActivityLIstItem");
+var rootStore_1 = require("../../../app/stores/rootStore");
 var ActivityList = function () {
-    var activityStore = react_1.useContext(activityStore_1.default);
-    var activitiesByDate = activityStore.activitiesByDate;
+    var rootStore = react_1.useContext(rootStore_1.RootStoreContext);
+    var activitiesByDate = rootStore.activityStore.activitiesByDate;
     return (React.createElement(react_1.Fragment, null, activitiesByDate.map(function (_a) {
         var group = _a[0], activities = _a[1];
         return (React.createElement(react_1.Fragment, { key: group },
