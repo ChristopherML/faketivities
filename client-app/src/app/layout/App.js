@@ -12,6 +12,7 @@ var ActivityDetails_1 = require("../../features/activities/details/ActivityDetai
 var NotFound_1 = require("./NotFound");
 var react_1 = require("react");
 var react_toastify_1 = require("react-toastify");
+var LoginForm_1 = require("../../features/user/LoginForm");
 var App = function (_a) {
     var location = _a.location;
     return (React.createElement(react_1.Fragment, null,
@@ -24,6 +25,7 @@ var App = function (_a) {
                         React.createElement(react_router_dom_1.Route, { exact: true, path: '/activities', component: ActivityDashboard_1.default }),
                         React.createElement(react_router_dom_1.Route, { path: '/activities/:id', component: ActivityDetails_1.default }),
                         React.createElement(react_router_dom_1.Route, { key: location.key, path: ['/createActivity', '/manage/:id'], component: ActivityForm_1.default }),
+                        React.createElement(react_router_dom_1.Route, { path: '/login', component: LoginForm_1.default }),
                         React.createElement(react_router_dom_1.Route, { component: NotFound_1.default }))))); } })));
 };
 exports.default = react_router_dom_1.withRouter(mobx_react_lite_1.observer(App));

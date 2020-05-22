@@ -18,6 +18,7 @@ axios_1.default.interceptors.response.use(undefined, function (error) {
     if (status === 500) {
         react_toastify_1.toast.error('Server error - check the terminal for more info!');
     }
+    throw error.response;
 });
 var responseBody = function (response) { return response.data; };
 var sleep = function (ms) { return function (response) {
