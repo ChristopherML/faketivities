@@ -5,6 +5,7 @@ import { observer } from 'mobx-react-lite';
 import { RootStoreContext } from '../../app/stores/rootStore';
 import { useContext, Fragment } from 'react';
 import LoginForm from '../user/LoginForm';
+import RegisterForm from '../user/RegisterForm';
 
 const HomePage: React.FC = () => {
   const rootStore = useContext( RootStoreContext );
@@ -31,7 +32,7 @@ const HomePage: React.FC = () => {
               <Button onClick={() => openModal( <LoginForm />)} size='huge' inverted>
                 Login
               </Button>
-              <Button as={Link} to='/register' size='huge' inverted>
+              <Button onClick={() => openModal( <RegisterForm /> )} size='huge' inverted>
                 Register
               </Button>
             </Fragment>

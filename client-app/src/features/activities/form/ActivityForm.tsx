@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { Button, Segment, Form, Grid } from 'semantic-ui-react';
-import { IActivityFormValues, ActivityFormValues } from '../../../app/models/activity';
-import { useState, FormEvent, useContext, useEffect } from 'react';
+import { ActivityFormValues } from '../../../app/models/activity';
+import { useState, useContext, useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
-import ActivityStore from '../../../app/stores/activityStore';
 import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router';
 import { Form as FinalForm, Field } from 'react-final-form';
@@ -61,7 +60,7 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ( { match, his
 
   const handleFinalFormSubmit = ( values: any ) => {
     const dateAndTime = combineDateAndTime( values.date, values.time );
-    const { date, time, ...activity } = values;
+    const { ...activity } = values;
     activity.date = dateAndTime;
     if ( !activity.id ) {
       let newActivity = {
@@ -135,7 +134,7 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ( { match, his
                 />
                 <Button
                   loading={submitting}
-                  disabled={loading || invalid || pristine}
+                  disabled={(loading || invalid) || pristine}
                   floated='right'
                   positive
                   type='submit'

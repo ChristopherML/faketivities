@@ -36,6 +36,8 @@ namespace API
         {
             services.AddDbContext<DataContext>(opt =>
             {
+                //The appsettings.json file must be present with "ConnectionStrings": {"DefaultConnection": "Data source=fakebooktivities.db"},
+
                 opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
             services.AddCors(opt =>

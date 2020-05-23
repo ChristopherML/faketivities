@@ -13,7 +13,7 @@ axios_1.default.interceptors.request.use(function (config) {
     return Promise.reject(error);
 });
 axios_1.default.interceptors.response.use(undefined, function (error) {
-    if (error.message == 'Network Error' && !error.response) {
+    if (error.message === 'Network Error' && !error.response) {
         react_toastify_1.toast.error('Network error - make sure API is running!');
     }
     var _a = error.response, status = _a.status, data = _a.data, config = _a.config;

@@ -16,7 +16,7 @@ axios.interceptors.request.use( (config) => {
 } );
 
 axios.interceptors.response.use( undefined, error => {
-  if ( error.message == 'Network Error' && !error.response ) {
+  if ( error.message === 'Network Error' && !error.response ) {
     toast.error( 'Network error - make sure API is running!' );
   }
   const { status, data, config } = error.response;
