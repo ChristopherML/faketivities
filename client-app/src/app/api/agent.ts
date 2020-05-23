@@ -7,9 +7,17 @@ import { IUserFormValues, IUser } from '../models/user';
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
 
+axios.interceptors.request.use( (config) => {
+  const token = window.localStorage.getItem( 'jwt' );
+  if ( token ) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+}, error => {
+  return Promise.reject( error );
+} );
+
 axios.interceptors.response.use( undefined, error => {
-  if ( error.message == 'Network Error' && !error.response) {
-  toast.error('Network error - make sure API is running!')
+  if ( error.message == 'Network Error' && !error.response ) {
+    toast.error( 'Network error - make sure API is running!' );
   }
   const { status, data, config } = error.response;
   if ( status === 404 ) {
@@ -48,7 +56,7 @@ const User = {
   current: (): Promise<IUser> => requests.get( '/user' ),
   login: ( user: IUserFormValues ): Promise<IUser> => requests.post( `/user/login`, user ),
   register: ( user: IUserFormValues ): Promise<IUser> => requests.post( `/user/register`, user ),
-}
+};
 
 export default {
   Activities,

@@ -4,6 +4,14 @@ var axios_1 = require("axios");
 var __1 = require("../..");
 var react_toastify_1 = require("react-toastify");
 axios_1.default.defaults.baseURL = 'http://localhost:5000/api';
+axios_1.default.interceptors.request.use(function (config) {
+    var token = window.localStorage.getItem('jwt');
+    if (token)
+        config.headers.Authorization = "Bearer " + token;
+    return config;
+}, function (error) {
+    return Promise.reject(error);
+});
 axios_1.default.interceptors.response.use(undefined, function (error) {
     if (error.message == 'Network Error' && !error.response) {
         react_toastify_1.toast.error('Network error - make sure API is running!');

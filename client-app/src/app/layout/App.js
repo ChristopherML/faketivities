@@ -13,9 +13,26 @@ var NotFound_1 = require("./NotFound");
 var react_1 = require("react");
 var react_toastify_1 = require("react-toastify");
 var LoginForm_1 = require("../../features/user/LoginForm");
+var rootStore_1 = require("../stores/rootStore");
+var LoadingComponent_1 = require("./LoadingComponent");
+var ModalContainer_1 = require("../common/modals/ModalContainer");
 var App = function (_a) {
     var location = _a.location;
+    var rootStore = React.useContext(rootStore_1.RootStoreContext);
+    var _b = rootStore.commonStore, setAppLoaded = _b.setAppLoaded, token = _b.token;
+    var getUser = rootStore.userStore.getUser;
+    react_1.useEffect(function () {
+        if (token) {
+            getUser().finally(function () { return setAppLoaded(); });
+        }
+        else {
+            setAppLoaded();
+        }
+    }, [getUser, setAppLoaded, token]);
+    if (!setAppLoaded)
+        return React.createElement(LoadingComponent_1.default, { content: 'Loading app...' });
     return (React.createElement(react_1.Fragment, null,
+        React.createElement(ModalContainer_1.default, null),
         React.createElement(react_toastify_1.ToastContainer, { position: 'bottom-right' }),
         React.createElement(react_router_dom_1.Route, { exact: true, path: '/', component: HomePage_1.default }),
         React.createElement(react_router_dom_1.Route, { path: '/(.+)', render: function () { return (React.createElement(react_1.Fragment, null,
