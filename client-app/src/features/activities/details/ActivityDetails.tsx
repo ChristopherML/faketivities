@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Grid } from 'semantic-ui-react';
-import ActivityStore from '../../../app/stores/activityStore';
 import { useContext, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { RouteComponentProps } from 'react-router-dom';
@@ -31,7 +30,6 @@ const ActivityDetails: React.FC<RouteComponentProps<DetailParams>> = ( {
 
   if ( !activity )
     return <h2>Activity not found</h2>;
-
 
   return (
     <Grid>

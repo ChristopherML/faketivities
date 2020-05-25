@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{b6610506-2784-4630-b9bf-4e531f398a56}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <StartupFile />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -19,7 +19,7 @@
   <ItemGroup>
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
-    <None Include="tsconfig.json" />
+    <Content Include="tsconfig.json" />
     <Content Include="public\assets\categoryImages\culture.jpg" />
     <Content Include="public\assets\categoryImages\drinks.jpg" />
     <Content Include="public\assets\categoryImages\film.jpg" />

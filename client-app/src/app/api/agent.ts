@@ -2,7 +2,6 @@ import axios, { AxiosResponse } from 'axios';
 import { IActivity } from '../models/activity';
 import { history } from '../..';
 import { toast } from 'react-toastify';
-import { request } from 'https';
 import { IUserFormValues, IUser } from '../models/user';
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
