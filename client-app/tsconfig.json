@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -11,14 +11,13 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    //"alwaysStrict": false,                  /* Parse in strict mode and emit "use strict" for each source file. */
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "experimentalDecorators": true
   },
   "include": [
@@ -26,4 +25,3 @@
     "./typings-custom/**/*.ts"
   ]
 }
-

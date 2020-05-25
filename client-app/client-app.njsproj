@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{b6610506-2784-4630-b9bf-4e531f398a56}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <StartupFile />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -47,7 +47,6 @@
     <Folder Include="src\app\common\modals\" />
     <Folder Include="src\app\common\util\" />
     <Folder Include="src\features\user\" />
-    <Folder Include="typings-customs\" />
     <Folder Include="public" />
     <Folder Include="public\assets\" />
     <Folder Include="public\assets\categoryImages\" />
@@ -67,6 +66,7 @@
     <Folder Include="src\features\nav\" />
     <Folder Include="src\features\activities\" />
     <Folder Include="src\features\home\" />
+    <Folder Include="typings-custom\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\app\api\agent.ts">
@@ -135,7 +135,7 @@
     <TypeScriptCompile Include="src\features\activities\dashboard\ActivityList.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="src\features\activities\dashboard\ActivityLIstItem.tsx">
+    <TypeScriptCompile Include="src\features\activities\dashboard\ActivityListItem.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\activities\details\ActivityDetailedSidebar.tsx" />
@@ -162,9 +162,7 @@
     <TypeScriptCompile Include="src\features\user\LoginForm.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="typings-customs\react-widgets-date-fns.d.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings-custom\react-widgets-date-fns.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
