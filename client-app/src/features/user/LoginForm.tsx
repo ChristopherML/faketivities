@@ -51,7 +51,7 @@ const LoginForm = () => {
               placeholder='Password'
               type='password'
             />
-            {submitError && !dirtySinceLastSubmit && (
+            {(submitError && !dirtySinceLastSubmit) && (
               <ErrorMessage
                 error={submitError}
                 text='Invalid email or password'

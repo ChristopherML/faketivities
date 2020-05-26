@@ -3,32 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
     "@types/jest": "^24.9.1",
     "@types/node": "^12.12.37",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
-    "@types/react-widgets": "^4.4.2",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/react-widgets": "^4.3.3",
     "@types/revalidate": "^1.1.2",
     "@types/uuid": "7.0.3",
     "axios": "^0.19.2",
-    "date-fns": "^2.14.0",
+    "date-fns": "^2.0.0-alpha.13",
     "final-form": "^4.19.1",
     "mobx": "^5.15.4",
     "mobx-react-lite": "^2.0.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-final-form": "^6.4.0",
-    "react-revalidate": "^0.1.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-toastify": "6.0.4",
-    "react-widgets": "^4.5.0",
-    "react-widgets-date-fns": "^4.0.19",
+    "react-widgets": "^4.4.11",
+    "react-widgets-date-fns": "^4.0.26",
     "revalidate": "^1.2.0",
-    "semantic-ui-react": "^0.88.2",
+    "semantic-ui-react": "^0.87.3",
     "typescript": "^3.9.2",
     "uuid": "8.0.0"
   },
@@ -52,8 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/react-router-dom": "^5.1.5"
   }
 }
