@@ -138,6 +138,9 @@
     <TypeScriptCompile Include="src\features\activities\dashboard\ActivityListItem.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\activities\dashboard\ActivityListItemAttendees.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\activities\details\ActivityDetailedSidebar.tsx" />
     <TypeScriptCompile Include="src\features\activities\details\ActivityDetailedChat.tsx" />
     <TypeScriptCompile Include="src\features\activities\details\ActivityDetailedInfo.tsx" />
