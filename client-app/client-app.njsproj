@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\app\common\modals\" />
+    <Folder Include="src\app\common\photoUpload\" />
     <Folder Include="src\app\common\util\" />
+    <Folder Include="src\features\profiles\" />
     <Folder Include="src\features\user\" />
     <Folder Include="public" />
     <Folder Include="public\assets\" />
@@ -93,6 +95,15 @@
     <TypeScriptCompile Include="src\app\common\options\categoryOptions.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\common\photoUpload\PhotoUploadWidget.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\common\photoUpload\PhotoWidgetCropper.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\common\photoUpload\PhotoWidgetDropzone.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\common\util\util.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -111,6 +122,9 @@
     <TypeScriptCompile Include="src\app\models\activity.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\models\profile.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\models\user.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -124,6 +138,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\stores\commonStore.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\stores\profileStore.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\stores\userStore.ts">
@@ -157,6 +174,18 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\nav\NavBar.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\profiles\ProfileContent.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\profiles\ProfileHeader.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\profiles\ProfilePage.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\profiles\ProfilePhotos.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\user\RegisterForm.tsx">
