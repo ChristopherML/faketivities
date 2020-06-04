@@ -176,7 +176,13 @@
     <TypeScriptCompile Include="src\features\nav\NavBar.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\profiles\ProfileDescription.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\profiles\ProfileContent.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\profiles\ProfileEditForm.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\profiles\ProfileHeader.tsx">

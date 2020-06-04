@@ -1,11 +1,6 @@
-﻿using Domain;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace API.Controllers
 {
@@ -17,4 +12,3 @@ namespace API.Controllers
         protected IMediator Mediator => _mediator ?? (_mediator = HttpContext.RequestServices.GetService<IMediator>());
     }
 }
-

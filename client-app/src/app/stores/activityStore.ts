@@ -6,6 +6,7 @@ import { history } from '../..';
 import { toast } from 'react-toastify';
 import { RootStore } from './rootStore';
 import { setActivityProps, createAttendee } from '../common/util/util';
+import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 
 export default class ActivityStore {
   rootStore: RootStore;
@@ -14,30 +15,82 @@ export default class ActivityStore {
   }
 
   @observable activityRegistry = new Map();
-  @observable loadingInitial = false;
   @observable activity: IActivity | null = null;
+  @observable loadingInitial = false;
   @observable submitting = false;
   @observable target = '';
   @observable loading = false;
+  @observable.ref hubConnection: HubConnection | null = null;
 
+  @action createHubConnection = ( activityId: string ) => {
+    this.hubConnection = new HubConnectionBuilder()
+      .withUrl( 'http://localhost:5000/chat', {
+        accessTokenFactory: () => this.rootStore.commonStore.token!
+      } )
+      .configureLogging( LogLevel.Information )
+      .build();
 
+    this.hubConnection
+      .start()
+      .then( () => console.log( this.hubConnection!.state ) )
+      .then( () => {
+        console.log( 'Attempting to join group' );
+        this.hubConnection!.invoke( 'AddToGroup', activityId );
+      } )
+      .catch( error => console.log( 'Error establishing connection: ', error ) );
+
+    this.hubConnection.on( 'ReceiveComment', comment => {
+      runInAction( () => {
+        this.activity!.comments.push( comment );
+      } );
+    } );
+
+    this.hubConnection.on( 'Send', message => {
+      toast.info( message );
+    } );
+  };
+
+  @action stopHubConnection = () => {
+    this.hubConnection!.invoke( 'RemoveFromGroup', this.activity!.id )
+      .then( () => {
+        this.hubConnection!.stop();
+      } )
+      .then( () => console.log( 'Connection stopped' ) )
+      .catch( error => console.log( error ))
+  };
+
+  @action addComment = async ( values: any ) => {
+    values.activityId = this.activity!.id;
+    try {
+      await this.hubConnection!.invoke( 'SendComment', values );
+    } catch ( error ) {
+      console.log( error );
+    }
+  };
 
   @computed get activitiesByDate() {
-    return this.groupActivitiesByDate( Array.from( this.activityRegistry.values() ) );
+    return this.groupActivitiesByDate(
+      Array.from( this.activityRegistry.values() )
+    );
   }
 
   groupActivitiesByDate( activities: IActivity[] ) {
     const sortedActivities = activities.sort(
       ( a, b ) => a.date.getTime() - b.date.getTime()
     );
-    return Object.entries( sortedActivities.reduce( ( activities, activity ) => {
-      const date = activity.date.toISOString().split( 'T' )[0];
-      activities[date] = activities[date] ? [...activities[date], activity] : [activity];
-      return activities;
-    }, {} as { [key: string]: IActivity[]; } ) );
+    return Object.entries(
+      sortedActivities.reduce(
+        ( activities, activity ) => {
+          const date = activity.date.toISOString().split( 'T' )[0];
+          activities[date] = activities[date]
+            ? [...activities[date], activity]
+            : [activity];
+          return activities;
+        },
+        {} as { [key: string]: IActivity[]; }
+      )
+    );
   }
-
-  // LOAD ACTIVITIES
 
   @action loadActivities = async () => {
     this.loadingInitial = true;
@@ -54,11 +107,8 @@ export default class ActivityStore {
       runInAction( 'load activities error', () => {
         this.loadingInitial = false;
       } );
-      console.log( error );
     }
   };
-
-  // LOAD ACTIVITY
 
   @action loadActivity = async ( id: string ) => {
     let activity = this.getActivity( id );
@@ -93,8 +143,6 @@ export default class ActivityStore {
     return this.activityRegistry.get( id );
   };
 
-  // CREATE ACTIVITY
-
   @action createActivity = async ( activity: IActivity ) => {
     this.submitting = true;
     try {
@@ -104,8 +152,9 @@ export default class ActivityStore {
       let attendees = [];
       attendees.push( attendee );
       activity.attendees = attendees;
+      activity.comments = [];
       activity.isHost = true;
-      runInAction( 'creating activity', () => {
+      runInAction( 'create activity', () => {
         this.activityRegistry.set( activity.id, activity );
         this.submitting = false;
       } );
@@ -118,8 +167,6 @@ export default class ActivityStore {
       console.log( error.response );
     }
   };
-
-  // EDIT ACTIVITY
 
   @action editActivity = async ( activity: IActivity ) => {
     this.submitting = true;
@@ -136,13 +183,14 @@ export default class ActivityStore {
         this.submitting = false;
       } );
       toast.error( 'Problem submitting data' );
-      console.log( error.response );
+      console.log( error );
     }
   };
 
-  // DELETE ACTIVITY
-
-  @action deleteActivity = async ( event: SyntheticEvent<HTMLButtonElement>, id: string ) => {
+  @action deleteActivity = async (
+    event: SyntheticEvent<HTMLButtonElement>,
+    id: string
+  ) => {
     this.submitting = true;
     this.target = event.currentTarget.name;
     try {
@@ -161,8 +209,6 @@ export default class ActivityStore {
     }
   };
 
-  // ATTEND ACTIVITY
-
   @action attendActivity = async () => {
     const attendee = createAttendee( this.rootStore.userStore.user! );
     this.loading = true;
@@ -180,12 +226,9 @@ export default class ActivityStore {
       runInAction( () => {
         this.loading = false;
       } );
-      this.loading = false;
       toast.error( 'Problem signing up to activity' );
     }
   };
-
-  // CANCEL ATTENDANCE
 
   @action cancelAttendance = async () => {
     this.loading = true;
@@ -205,8 +248,7 @@ export default class ActivityStore {
       runInAction( () => {
         this.loading = false;
       } );
-      toast.error( 'Problem canceling attendance' );
+      toast.error( 'Problem cancelling attendance' );
     }
   };
 }
-

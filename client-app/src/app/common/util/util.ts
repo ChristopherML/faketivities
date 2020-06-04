@@ -30,4 +30,8 @@ export const createAttendee = ( user: IUser ): IAttendee => {
     username: user.username,
     image: user.image!
   }
+};
+
+export const capitalizeFirstLetter = ( str: string, locale: string = navigator.language ) => {
+  return str.replace( /^\p{CWU}/u, char => char.toLocaleUpperCase( locale ) );
 }

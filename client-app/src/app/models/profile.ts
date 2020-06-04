@@ -1,13 +1,16 @@
-export interface IProfile {
+export interface IProfileEditable {
   displayName: string,
-  username: string,
   bio: string,
+}
+
+export interface IProfile extends IProfileEditable {
+  username: string,
   image: string,
-  photos: IPhoto[]
+  photos: IPhoto[],
 }
 
 export interface IPhoto {
   id: string,
   url: string,
-  isMain: boolean
+  isMain: boolean,
 }

@@ -15,7 +15,6 @@ export default class ProfileStore {
   @observable uploadingPhoto = false;
   @observable loading = false;
 
-
   @computed get isCurrentUser() {
     if ( this.rootStore.userStore.user && this.profile ) {
       return this.rootStore.userStore.user.username === this.profile.username;
@@ -89,12 +88,25 @@ export default class ProfileStore {
       runInAction( () => {
         this.profile!.photos = this.profile!.photos.filter( a => a.id !== photo.id );
         this.loading = false;
-      })
+      } );
     } catch ( error ) {
-      toast.error( 'Problem deleting the photo' )
+      toast.error( 'Problem deleting the photo' );
       runInAction( () => {
         this.loading = false;
-      })
+      } );
     }
-  }
+  };
+
+  @action updateProfile = async ( profile: Partial<IProfile> ) => {
+    try {
+      await agent.Profiles.updateProfile( profile );
+      runInAction( () => {
+        ( profile.displayName !== this.rootStore.userStore.user!.displayName ) &&
+          ( this.rootStore.userStore.user!.displayName = profile.displayName! );
+        this.profile = { ...this.profile!, ...profile };
+      } );
+    } catch ( error ) {
+      toast.error( 'Problem deleting the photo' );
+    }
+  };
 }
