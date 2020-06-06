@@ -5,9 +5,9 @@ export interface IActivity {
   category: string;
   date: Date;
   city: string;
+  venue: string;
   isGoing: boolean;
   isHost: boolean;
-  venue: string;
   attendees: IAttendee[];
   comments: IComment[];
 }
@@ -20,7 +20,6 @@ export interface IComment {
   displayName: string;
   image: string;
 }
-
 
 export interface IActivityFormValues extends Partial<IActivity> {
   time?: Date;
@@ -42,7 +41,6 @@ export class ActivityFormValues implements IActivityFormValues {
     }
     Object.assign( this, init );
   }
-
 }
 
 export interface IAttendee {
@@ -50,4 +48,5 @@ export interface IAttendee {
   displayName: string;
   image: string;
   isHost: boolean;
+  following?: boolean;
 }
