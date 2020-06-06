@@ -158,6 +158,9 @@
     <TypeScriptCompile Include="src\features\activities\dashboard\ActivityListItemAttendees.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\activities\dashboard\ActivityFilters.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\activities\details\ActivityDetailedSidebar.tsx" />
     <TypeScriptCompile Include="src\features\activities\details\ActivityDetailedChat.tsx" />
     <TypeScriptCompile Include="src\features\activities\details\ActivityDetailedInfo.tsx" />
@@ -174,6 +177,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\nav\NavBar.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\profiles\ProfileActivities.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\profiles\ProfileCard.tsx">

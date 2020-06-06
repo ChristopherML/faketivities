@@ -1,19 +1,27 @@
+
 export interface IProfileEditable {
-  displayName: string,
-  bio: string,
+  displayName: string;
+  bio: string;
 }
 
 export interface IProfile extends IProfileEditable {
-  username: string,
-  image: string,
-  following: boolean,
-  followersCount: number,
-  followingCount: number,
-  photos: IPhoto[],
+  username: string;
+  image: string;
+  following: boolean;
+  followersCount: number;
+  followingCount: number;
+  photos: IPhoto[];
 }
 
 export interface IPhoto {
-  id: string,
-  url: string,
-  isMain: boolean,
+  id: string;
+  url: string;
+  isMain: boolean;
+}
+
+export interface IUserActivity {
+  id: string;
+  title: string;
+  category: string;
+  date: Date;
 }
