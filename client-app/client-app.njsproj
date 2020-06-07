@@ -17,6 +17,12 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include=".env.development">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include=".env.production">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
@@ -116,6 +122,9 @@
     <TypeScriptCompile Include="src\app\layout\NotFound.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\layout\PrivateRoute.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\app\layout\ScrollToTop.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -159,6 +168,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\activities\dashboard\ActivityFilters.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\activities\dashboard\ActivityListItemPlaceHolder.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\activities\details\ActivityDetailedSidebar.tsx" />

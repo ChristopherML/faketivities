@@ -8,6 +8,7 @@ import LoginForm from '../user/LoginForm';
 import RegisterForm from '../user/RegisterForm';
 
 const HomePage: React.FC = () => {
+  const token = window.localStorage.getItem( 'jwt' );
   const rootStore = useContext( RootStoreContext );
   const { isLoggedIn, user } = rootStore.userStore;
   const { openModal } = rootStore.modalStore;
@@ -19,7 +20,7 @@ const HomePage: React.FC = () => {
           <Image size='massive' src='/assets/logo.png' alt='logo' style={{ marginBottom: 12 }} />
           Fakebooktivities
         </Header>
-        {isLoggedIn && user ? (
+        {( ( isLoggedIn && user ) && token ) ? (
           <Fragment>
             <Header as='h2' inverted content={`Welcome back, ${user.displayName}!`} />
             <Button as={Link} to='/activities' size='huge' inverted>
@@ -29,7 +30,7 @@ const HomePage: React.FC = () => {
         ) : (
             <Fragment>
               <Header as='h2' inverted content='Welcome to Fakebooktivities' />
-              <Button onClick={() => openModal( <LoginForm />)} size='huge' inverted>
+              <Button onClick={() => openModal( <LoginForm /> )} size='huge' inverted>
                 Login
               </Button>
               <Button onClick={() => openModal( <RegisterForm /> )} size='huge' inverted>
