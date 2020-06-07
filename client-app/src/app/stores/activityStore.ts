@@ -88,10 +88,6 @@ export default class ActivityStore {
         this.activity!.comments.push( comment );
       } );
     } );
-
-    this.hubConnection.on( 'Send', message => {
-      toast.info( message );
-    } );
   };
 
   @action stopHubConnection = () => {
