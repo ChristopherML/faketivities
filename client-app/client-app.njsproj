@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{b6610506-2784-4630-b9bf-4e531f398a56}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <StartupFile />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -23,6 +23,40 @@
     <Content Include=".env.production">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="build\asset-manifest.json" />
+    <Content Include="build\assets\categoryImages\culture.jpg" />
+    <Content Include="build\assets\categoryImages\drinks.jpg" />
+    <Content Include="build\assets\categoryImages\film.jpg" />
+    <Content Include="build\assets\categoryImages\food.jpg" />
+    <Content Include="build\assets\categoryImages\music.jpg" />
+    <Content Include="build\assets\categoryImages\travel.jpg" />
+    <Content Include="build\assets\logo.png" />
+    <Content Include="build\assets\placeholder.png" />
+    <Content Include="build\assets\user.png" />
+    <Content Include="build\favicon.ico" />
+    <Content Include="build\index.html" />
+    <Content Include="build\logo192.png" />
+    <Content Include="build\logo512.png" />
+    <Content Include="build\manifest.json" />
+    <Content Include="build\precache-manifest.90ec7be4181d5a8a0d1f013837ec9ea6.js" />
+    <Content Include="build\robots.txt" />
+    <Content Include="build\service-worker.js" />
+    <Content Include="build\static\css\2.38bc36a4.chunk.css" />
+    <Content Include="build\static\css\2.38bc36a4.chunk.css.map" />
+    <Content Include="build\static\css\main.912e9c17.chunk.css" />
+    <Content Include="build\static\css\main.912e9c17.chunk.css.map" />
+    <Content Include="build\static\js\2.e401ad2e.chunk.js" />
+    <Content Include="build\static\js\2.e401ad2e.chunk.js.LICENSE.txt" />
+    <Content Include="build\static\js\2.e401ad2e.chunk.js.map" />
+    <Content Include="build\static\js\main.63cc4201.chunk.js" />
+    <Content Include="build\static\js\main.63cc4201.chunk.js.map" />
+    <Content Include="build\static\js\runtime-main.3c15650a.js" />
+    <Content Include="build\static\js\runtime-main.3c15650a.js.map" />
+    <Content Include="build\static\media\loader-big.a770b679.gif" />
+    <Content Include="build\static\media\rw-widgets.12f0820c.woff" />
+    <Content Include="build\static\media\rw-widgets.792dcd18.svg" />
+    <Content Include="build\static\media\rw-widgets.bc7c4a59.eot" />
+    <Content Include="build\static\media\rw-widgets.eceddf47.ttf" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
@@ -50,6 +84,13 @@
     <None Include="src\index.tsx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="build\" />
+    <Folder Include="build\assets\" />
+    <Folder Include="build\assets\categoryImages\" />
+    <Folder Include="build\static\" />
+    <Folder Include="build\static\css\" />
+    <Folder Include="build\static\js\" />
+    <Folder Include="build\static\media\" />
     <Folder Include="src\app\common\modals\" />
     <Folder Include="src\app\common\photoUpload\" />
     <Folder Include="src\app\common\util\" />

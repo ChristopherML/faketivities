@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { AxiosResponse } from 'axios';
 import { Message } from 'semantic-ui-react';
 
@@ -7,7 +7,7 @@ interface IProps {
   text?: string;
 }
 
-const ErrorMessage: React.FC<IProps> = ( { error, text } ) => {
+const ErrorMessage: FC<IProps> = ( { error, text } ) => {
   return (
     <Message error>
       <Message.Header>{error.statusText}</Message.Header>
