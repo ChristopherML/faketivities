@@ -37,10 +37,10 @@ namespace API
         }
         public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
+            
             .ConfigureWebHostDefaults(webBuilder =>
             {
-                webBuilder.UseStartup<Startup>()
-                    .UseKestrel(options => options.AddServerHeader = false);
+                webBuilder.UseStartup<Startup>().UseKestrel(options => options.AddServerHeader = false);
             });
     }
 }

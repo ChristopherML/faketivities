@@ -259,10 +259,16 @@
     <TypeScriptCompile Include="src\features\profiles\ProfilePhotos.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\features\user\SocialLogin.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\user\RegisterForm.tsx">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\features\user\LoginForm.tsx">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="typings-custom\facebook-login-render-props.d.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="typings-custom\react-widgets-date-fns.d.ts" />
